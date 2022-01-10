@@ -1,0 +1,69 @@
+{
+    "title": "SwitchBot Contact Sensor",
+    "description": "Open/Close Sensor",
+    "id": "urn:dev:SwitchBot-Contact-Sensor-1",
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "securityDefinitions": {
+        "bearer_sc": {
+            "scheme": "bearer",
+            "in":"header"
+        }
+    },
+    "security": [
+        "bearer_sc"
+    ],
+    "base": "https://api.switch-bot.com/v1.0/devices/<deviceId>/status",
+    "properties": {
+        "body": {
+            "description": "Contact Sensor information from the Hub",
+            "type": "object",
+            "properties": {
+                "deviceId": {
+                    "type": "string",
+                    "readOnly": true,
+                    "writeOnly": false
+                },
+                "deviceType": {
+                    "type": "string",
+                    "readOnly": true,
+                    "writeOnly": false
+                },
+                "hubDeviceId": {
+                    "type": "string",
+                    "readOnly": true,
+                    "writeOnly": false
+                },
+                "moveDetected": {
+                    "type": "boolean",
+                    "readOnly": true,
+                    "writeOnly": false
+                },
+                "brightness": {
+                    "type": "string",
+                    "readOnly": true,
+                    "writeOnly": false
+                },
+                "openState": {
+                    "type": "string",
+                    "readOnly": true,
+                    "writeOnly": false
+                }
+            },
+            "forms": [
+                {
+                    "href": "",
+                    "contentType": "application/json",
+                    "htv:methodName": "GET",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    }
+}
