@@ -19,39 +19,44 @@
     ],
     "base": "https://api.switch-bot.com/v1.0/devices/<deviceId>/status",
     "properties": {
-        "body": {
+        "state": {
             "description": "Contact Sensor information from the Hub",
             "type": "object",
             "properties": {
-                "deviceId": {
-                    "type": "string",
-                    "readOnly": true,
-                    "writeOnly": false
-                },
-                "deviceType": {
-                    "type": "string",
-                    "readOnly": true,
-                    "writeOnly": false
-                },
-                "hubDeviceId": {
-                    "type": "string",
-                    "readOnly": true,
-                    "writeOnly": false
-                },
-                "moveDetected": {
-                    "type": "boolean",
-                    "readOnly": true,
-                    "writeOnly": false
-                },
-                "brightness": {
-                    "type": "string",
-                    "readOnly": true,
-                    "writeOnly": false
-                },
-                "openState": {
-                    "type": "string",
-                    "readOnly": true,
-                    "writeOnly": false
+                "body": {
+                    "type": "object",
+                    "properties": {
+                      "deviceId": {
+                          "type": "string",
+                          "readOnly": true,
+                          "writeOnly": false
+                      },
+                      "deviceType": {
+                          "type": "string",
+                          "readOnly": true,
+                          "writeOnly": false
+                      },
+                      "hubDeviceId": {
+                          "type": "string",
+                          "readOnly": true,
+                          "writeOnly": false
+                      },
+                      "moveDetected": {
+                          "type": "boolean",
+                          "readOnly": true,
+                          "writeOnly": false
+                      },
+                      "brightness": {
+                          "type": "string",
+                          "readOnly": true,
+                          "writeOnly": false
+                      },
+                      "openState": {
+                          "type": "string",
+                          "readOnly": true,
+                          "writeOnly": false
+                      }
+                    }
                 }
             },
             "forms": [
