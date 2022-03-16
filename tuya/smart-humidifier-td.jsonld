@@ -1,0 +1,135 @@
+{
+  "title": "TuyaSmartHumidifier",
+  "description": "This is a WoT example of Tuya Smart Humidifier using WoTPy.",
+  "id": "urn:wot:TuyaSmartHumidifier",
+  "securityDefinitions": {
+    "nosec_sc": {
+    "scheme": "nosec"
+    }
+  },
+  "security": [
+    "nosec_sc"
+  ],
+  "@context": [
+    "https://www.w3.org/2019/wot/td/v1",
+    {
+        "@language": "en"
+    }
+  ],
+  "base": "http://localhost:9494/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0",
+  "properties": {
+    "state": {
+      "properties": {
+        "switch": {
+          "type": "boolean"
+        },
+        "countdown": {
+          "type": "string",
+          "enum": [
+            "cancel",
+            "1",
+            "3",
+            "6"
+          ]
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "interval",
+            "continuous"
+          ]
+        },
+        "switch_spray": {
+          "type": "boolean"
+        },
+        "moodlighting": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "colour_data": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "type": "object",
+      "forms": [
+        {
+          "contentType": "application/json",
+          "href": "ws://localhost:9393/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0"
+        },
+        {
+          "op": [
+            "readproperty",
+            "writeproperty"
+          ],
+          "contentType": "application/json",
+          "href": "http://localhost:9494/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0/property/state"
+        },
+        {
+          "op": [
+            "observeproperty"
+          ],
+          "contentType": "application/json",
+          "href": "http://localhost:9494/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0/property/state/subscription"
+        }
+      ]
+    }
+  },
+  "actions": {
+    "updateStatus": {
+      "description": "updateStatus",
+      "input": {
+        "properties": {
+          "switch": {
+            "type": "boolean"
+          },
+          "countdown": {
+            "type": "string",
+            "enum": [
+              "cancel",
+              "1",
+              "3",
+              "6"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "interval",
+              "continuous"
+            ]
+          },
+          "switch_spray": {
+            "type": "boolean"
+          },
+          "moodlighting": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "colour_data": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "type": "object"
+      },
+      "forms": [
+        {
+          "contentType": "application/json",
+          "href": "ws://localhost:9393/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0"
+        },
+        {
+          "op": [
+            "invokeaction"
+          ],
+          "contentType": "application/json",
+          "href": "http://localhost:9494/tuyasmarthumidifier-c95ada2f-c616-952a-b04d-f2c2d20e50d0/action/updatestatus"
+        }
+      ]
+    }
+  }
+}
